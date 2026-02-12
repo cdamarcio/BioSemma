@@ -1,1 +1,28 @@
+from django.contrib import admin
+from .models import Empresa, LicencaAmbiental
 
+@admin.register(LicencaAmbiental)
+class LicencaAdmin(admin.ModelAdmin):
+    # Colunas que aparecem na lista
+    list_display = ('empresa', 'tipo_licenca', 'data_vencimento', 'status_vencimento')
+    
+    # Filtros laterais rápidos
+    list_filter = ('empresa', 'data_vencimento')
+    
+    # Busca por nome da empresa ou tipo de licença
+    search_fields = ('empresa__nome_fantasia', 'tipo_licenca')
+
+    def status_vencimento(self, obj):
+        from django.utils import timezone
+        from django.utils.html import format_html
+        
+        hoje = timezone.now().date()
+        dias = (obj.data_vencimento - hoje).days
+        
+        if dias < 0:
+            return format_html('<span style="color: red; font-weight: bold;">VENCIDA</span>')
+        elif dias <= 30:
+            return format_html('<span style="color: orange; font-weight: bold;">VENCE EM {} DIAS</span>', dias)
+        return format_html('<span style="color: green;">Regular</span>')
+    
+    status_vencimento.short_description = 'Status de Prazo'
