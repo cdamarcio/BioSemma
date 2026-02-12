@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>SysAmbiental - Gestão Ambiental</title>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">KM Projetos | Sistema Ambiental</span>
+        <span class="text-white">Bem-vindo, {{ usuario }}</span>
+    </nav>
 
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total de Licenças</h5>
+                        <p class="card-text h2">{{ total }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Vencem em 30 dias</h5>
+                        <p class="card-text h2">{{ alerta }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-danger mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Vencidas / Pendentes</h5>
+                        <p class="card-text h2">{{ vencidas }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mt-4">Próximos Vencimentos</h3>
+        <table class="table table-striped bg-white mt-2">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Empresa</th>
+                    <th>Licença</th>
+                    <th>Data Vencimento</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for licenca in licencas %}
+                <tr>
+                    <td>{{ licenca.empresa.nome_fantasia }}</td>
+                    <td>{{ licenca.tipo_licenca }}</td>
+                    <td>{{ licenca.data_vencimento|date:"d/m/Y" }}</td>
+                    <td>
+                        <a href="{{ licenca.get_whatsapp_link }}" class="btn btn-success btn-sm">WhatsApp</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="4">Nenhuma licença cadastrada.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
