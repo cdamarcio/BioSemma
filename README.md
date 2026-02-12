@@ -1,4 +1,4 @@
-# BioSys
+# BioSemma
 
 ## 1. Requisitos Funcionais (RF)
 
