@@ -1,4 +1,4 @@
-# BioSemma
+# BioSemma - é uma plataforma digital projetada para modernizar, desburocratizar e dar transparência ao processo de licenciamento ambiental. O sistema automatiza desde a triagem do potencial poluidor até a fiscalização de vencimentos em tempo real com notificações via WhatsApp.
 
 ## 1. Requisitos Funcionais (RF)
 
