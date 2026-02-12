@@ -46,3 +46,8 @@ Para tornar esse sistema "custo zero" ou altamente eficiente, você pode utiliza
 * **PostgreSQL com PostGIS:** Para o banco de dados geográfico.
 * **Python (Django/FastAPI):** Para a lógica do sistema (aproveitando seu interesse na linguagem).
 * **Leaflet ou OpenLayers:** Para a visualização dos mapas no navegador.
+
+  ## Licença
+
+Este software é de propriedade da KM PROJETOS. 
+O uso ou reprodução sem autorização do desenvolvedor Márcio Rodrigues de Oliveira é estritamente proibida.
