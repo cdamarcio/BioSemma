@@ -50,4 +50,5 @@ Para tornar esse sistema "custo zero" ou altamente eficiente, você pode utiliza
   ## Licença
 
 Este software é de propriedade da KM PROJETOS. 
+
 O uso ou reprodução sem autorização do desenvolvedor Márcio Rodrigues de Oliveira é estritamente proibida.
